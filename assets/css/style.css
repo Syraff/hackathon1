@@ -126,12 +126,52 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border: transparent;
   cursor: pointer;
 }
-.quiz-hero .quiz-content form.flex {
+.quiz-hero .quiz-content form {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin: 60px auto 0 auto;
+  width: 600px;
+}
+
+.quiz-hero .quiz-content form.form {
+  width: 1000px;
+}
+.quiz-hero .quiz-content form .flex {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   margin: 0 auto;
-  width: 600px;
+  width: 800px;
+}
+
+.quiz-hero .quiz-content form .all-card {
+  display: flex;
+  width: 1000px;
+  justify-content: center;
+}
+
+.quiz-hero .quiz-content form .card {
+  align-items: center;
+  border: 1px solid #000;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  justify-content: space-around;
+  opacity: 0.7;
+  padding: 10px;
+  width: 100%;
+  margin: 0 10px;
+  max-width: 130px;
+}
+
+.quiz-hero .quiz-content form .card:hover {
+  background-color: white;
+}
+.quiz-hero .quiz-content form .card img {
+  width: 50px;
 }
 
 .quiz-hero .quiz-content form input.answer {
@@ -149,11 +189,29 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   opacity: 0.7;
   padding: 10px 0;
   text-align: center;
-  width: 250px;
+  width: 350px;
 }
 
-.quiz-hero .quiz-content form input.answer:active {
-  background-color: black;
+.quiz-hero .quiz-content form input.answer:hover {
+  background-color: white;
+}
+
+/* animation */
+
+.item {
+  width: 80px;
+  position: absolute;
+  top: -10%;
+  left: 2%;
+  transform: rotate(45deg);
+}
+.black {
+  top: -9%;
+  left: 1.5%;
+}
+
+.animation-logo {
+  animation: up-down 2.5s ease-in-out infinite alternate-reverse both;
 }
 
 .animation {
