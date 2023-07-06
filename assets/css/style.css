@@ -15,6 +15,7 @@ a {
 }
 
 .quiz-page {
+  /* background-color: #ffede0; */
   background-color: #e9bcb6;
 }
 
@@ -283,6 +284,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border: 1px solid black;
   background-color: white;
   transition: 0.2s;
+  box-shadow: -2px 4px #c9a63b;
 }
 
 .output-hero .title a:hover {
@@ -298,13 +300,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   font-weight: 800;
 }
 
-.section.skin .content {
-  grid-template-columns: 45% 45%;
+.section.about-us .content {
+  grid-template-columns: 33% 33% 33%;
 }
 
 .content {
   display: grid;
-  grid-template-columns: 33% 33% 33%;
+  grid-template-columns: auto;
   row-gap: 20px;
 }
 
@@ -318,6 +320,20 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   width: auto;
   box-shadow: -6px 6px #c45449;
   transition: 0.2s;
+}
+
+.list p.list-title {
+  color: #ff6161;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.list p {
+  font-size: 15px;
+}
+
+.section.skin .list .list-title {
+  color: #1c612e;
 }
 
 .list.skin {
@@ -338,5 +354,5 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .list img {
   height: 50px;
-  width: 200px;
+  min-width: 200px;
 }

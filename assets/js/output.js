@@ -23,14 +23,16 @@ for (let i of obj["Your Skin"]) {
   let kondisi = document.getElementById("kondisi");
   let hope = document.getElementById("hope");
   let acne = document.getElementById("acne");
+  let subAcne = document.getElementById("sub-acne");
   let kulit = document.getElementById("kulit");
+  let subKulit = document.getElementById("sub-kulit");
   switch (i) {
     case "Normal":
     case "Kering":
     case "Berminyak":
     case "Kombinasi":
     case "Sensitif":
-      kondisi.innerText = `kondisi kulitmu saat ini ${i}`;
+      kondisi.innerText = `Kondisi kulitmu saat ini ${i}`;
       break;
     case "Meningkatkan kelembapan kulit":
     case "Menangkal tanda-tanda penuaan":
@@ -41,22 +43,29 @@ for (let i of obj["Your Skin"]) {
       break;
     case "Tidak ada sama sekali":
       acne.innerText = "Kamu tidak memiliki jerawat ";
+      subAcne.innerText = "Terlihat bagus disini :)";
       break;
     case "1 - 2 kali":
     case "3 - 4 kali":
       acne.innerText = `${i} berjerawat dalam sebulan`;
+      subAcne.innerText = `Cukup umum untuk mengalami jerawat ${i} dalam sebulan. Penyebab utamanya biasanya adalah perubahan hormonal.`;
       break;
     case "Selalu ada jerawat":
       acne.innerText = `${i} dalam sebulan`;
+      subAcne.innerText = "Lebih baik kamu konsultasikan ke dokter kulit";
       break;
     case "Kemerahan dan ruam":
     case "Gatal":
     case "Kering dan terkelupas":
     case "Kulit bersisik putih":
       kulit.innerText = `${i} di sekitar wajah`;
+      subKulit.innerText = "Silahkan konsultasikan ke dokter kulit";
       break;
     case "Tidak, kulitku baik-baik saja":
       kulit.innerText = "Tidak ada kemerahan atau kekeringan di sekitar wajah";
+      subKulit.innerText =
+        "Tampaknya Anda tidak memiliki masalah sensitivitas yang besardengan kulit Anda";
+      break;
   }
 }
 
@@ -71,11 +80,11 @@ for (let i = 0; i < obj["Your Lifestyle"].length; i++) {
   let vehicle = document.getElementById("vehicle");
   let diet = document.getElementById("diet");
   if (i === 0) {
-    retinol.innerText = `kamu ${result} menggunakan retinol`;
+    retinol.innerText = `Kamu ${result} menggunakan retinol`;
   } else if (i === 1) {
-    pha.innerText = `kamu ${result} menggunakan AHA/BHA/PHA`;
+    pha.innerText = `Kamu ${result} menggunakan AHA/BHA/PHA`;
   } else if (i === 2) {
-    dermatologi.innerText = `kamu ${result} menggunakan resep dokter kulit`;
+    dermatologi.innerText = `Kamu ${result} menggunakan resep dokter kulit`;
   }
   switch (key[i]) {
     case "Kurang dari 1 jam":
