@@ -12,12 +12,6 @@ var anyQuestions = [
     answer: ["Pria", "Wanita"],
     category: "About Yourself",
   },
-  // jika user memilih gender wanita, maka akan ada pertanyaan selanjutnya
-  {
-    question: "Apakah kamu sedang hamil atau menyusui?",
-    answer: ["Ya", "Tidak"],
-    category: "About Yourself",
-  },
   {
     question: "Bagaimana kondisi kulitmu saat ini?",
     answer: [
@@ -110,6 +104,73 @@ var anyQuestions = [
       "Tidak ada alergi sejauh ini",
     ],
     category: "Your Skin",
+  },
+  // your lifestyle
+  {
+    question:
+      "Dalam satu bulan terakhir, seberapa sering kamu menggunakan retinol?",
+    answer: ["Tidak", "Jarang", "Sering"],
+    category: "Your Lifestyle",
+  },
+  {
+    question:
+      "Dalam satu bulan terakhir, seberapa sering kamu menggunakan produk yang mengandung AHA/BHA/PHA?",
+    answer: ["Tidak", "Jarang", "Sering"],
+    category: "Your Lifestyle",
+  },
+  {
+    question:
+      "Dalam 3 bulan terakhir, apakah kamu pernah menggunakan resep obat perawatan kulit dari dermatologis atau dokter kulit?",
+    answer: ["Tidak", "Jarang", "Sering"],
+    category: "Your Lifestyle",
+  },
+  {
+    question:
+      "Berapa lama kamu berada di luar ruangan yang terkena cahaya matahari langsung dalam sehari? (rata-rata dalam satu bulan terakhir)",
+    answer: [
+      "Kurang dari 1 jam",
+      "1-3 jam",
+      "4-6 jam",
+      "7-8 jam",
+      "Lebih dari 8 jam",
+    ],
+    category: "Your Lifestyle",
+  },
+  {
+    question: "Pukul berapa kamu tidur? (rata-rata dalam satu bulan terakhir)",
+    answer: [
+      "Antara jam 9 dan 11 malam",
+      "Antara jam 11 dan 1 pagi",
+      "Antara jam 1 dan 3 pagi",
+      "Setelah jam 3 pagi",
+    ],
+    category: "Your Lifestyle",
+  },
+  {
+    question:
+      "Bagaimana cara kamu bepergian atau berkendara sehari-hari? (rata-rata dalam satu bulan terakhir)",
+    answer: [
+      "Sepeda motor",
+      "Mobil",
+      "Bus umum",
+      "Kereta",
+      "Jalan kaki",
+      "Aku jarang bepergian",
+    ],
+    category: "Your Lifestyle",
+  },
+  {
+    question: "Apakah kamu punya diet khusus?",
+    answer: [
+      "Vegetarian",
+      "Vegan",
+      "Ketorarian",
+      "Bebas susu",
+      "Bebas gluten",
+      "Pescatarian",
+      "Aku tidak punya diet khusus",
+    ],
+    category: "Your Lifestyle",
   },
 ];
 

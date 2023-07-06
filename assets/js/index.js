@@ -1,12 +1,13 @@
 import { anyQuestions } from "./data.js";
+import { obj } from "./tmp.js";
 
 function render() {
-  let obj = {
-    name: "",
-    dateofBirth: "",
-    gender: "",
-    "Your Skin": [],
-  };
+  // let obj = {
+  //   name: "",
+  //   dateofBirth: "",
+  //   gender: "",
+  //   "Your Skin": [],
+  // };
 
   let iconSubmit = document.getElementById("formSubmit");
   let answers = document.getElementById("answer");
@@ -24,17 +25,39 @@ function render() {
   category.textContent = anyQuestions[number].category;
   question.textContent = anyQuestions[number].question;
 
-  //styling
-  if (anyQuestions[number].category === "Your Skin") {
-    document.body.style.background = "#ffede0";
-  }
+  //fisrt submit
+
+  submitBtn.addEventListener("click", () => {
+    if (question.textContent === anyQuestions[0].question) {
+      if (!answers.value) {
+        alert("Please fill out all fields");
+      } else {
+        number++;
+        obj["name"] = answers.value;
+        answers.type = "date";
+      }
+    }
+    if (question.textContent === anyQuestions[1].question) {
+      number++;
+      obj["dateofBirth"] = answers.value;
+      answers.style.display = "none";
+      iconSubmit.style.display = "none";
+    }
+    if (number > 1) {
+      looping();
+    }
+    category.textContent = anyQuestions[number].category;
+    question.textContent = anyQuestions[number].question;
+    console.log(obj);
+    // console.log(question.textContent);
+  });
 
   //looping
   function looping() {
-    if (number === 4 || number === 8) {
+    if (number === 3 || number === 7) {
       document.getElementById("form").className = "form";
       let allCard = document.createElement("div");
-      for (i = 0; i < anyQuestions[number].answer.length; i++) {
+      for (let i = 0; i < anyQuestions[number].answer.length; i++) {
         let component = document.createElement("div");
         let answer = anyQuestions[number].answer[i];
         let img = document.createElement("img");
@@ -53,7 +76,7 @@ function render() {
       }
     } else {
       let component = document.createElement("div");
-      for (i = 0; i < anyQuestions[number].answer.length; i++) {
+      for (let i = 0; i < anyQuestions[number].answer.length; i++) {
         let answer = anyQuestions[number].answer[i];
         let jawaban = document.createElement("input");
         component.id = "input";
@@ -74,17 +97,14 @@ function render() {
   function handleClick(value) {
     if (number < anyQuestions.length - 1) {
       if (anyQuestions[number].category === "About Yourself") {
-        if (value === "Wanita") {
-          number++;
-        } else {
-          number += 2;
-        }
+        number++;
         obj["gender"] = value;
         let input = document.getElementById("input");
         input.remove();
         looping();
       } else if (anyQuestions[number].category === "Your Skin") {
         if (value === "Tidak ada sama sekali") {
+          obj["Your Skin"].push(value);
           number++;
           let input = document.getElementById("input");
           input.remove();
@@ -111,13 +131,14 @@ function render() {
           input.remove();
           looping();
         } else if (value === "Tidak, kulitku baik-baik saja") {
-          number = anyQuestions.length - 1;
+          obj["Your Skin"].push(value);
+          number++;
           let input = document.getElementById("input");
           input.remove();
           looping();
         } else {
           obj["Your Skin"].push(value);
-          if (number === 4 || number === 8) {
+          if (number === 3 || number === 7) {
             let input = document.getElementById("all-card");
             input.remove();
           } else {
@@ -127,40 +148,33 @@ function render() {
           number++;
           looping();
         }
+      } else if (anyQuestions[number].category === "Your Lifestyle") {
+        document.body.style.backgroundColor = "#ffede0";
+        obj["Your Lifestyle"].push(value);
+        let input = document.getElementById("input");
+        input.remove();
+        number++;
+        looping();
+      }
+      if (anyQuestions[number].category === "Your Lifestyle") {
+        document.body.style.backgroundColor = "#ffede0";
       }
       category.textContent = anyQuestions[number].category;
       question.textContent = anyQuestions[number].question;
     } else if (number === anyQuestions.length - 1) {
-      window.location.href = "../../pages/output.html";
+      obj["Your Lifestyle"].push(value);
+      let script = document.createElement("script");
+      script.src = "../assets/js/output.js";
+      script.type = "module";
+      document.body.appendChild(script);
+      let output = document.getElementById("output");
+      let hero = document.getElementById("quiz");
+      output.style.display = "block";
+      hero.remove();
     }
     console.log(obj);
+    console.log(anyQuestions[number].category);
+    console.log(number);
   }
-
-  //fisrt submit
-
-  submitBtn.addEventListener("click", () => {
-    if (question.textContent === anyQuestions[0].question) {
-      if (!answers.value) {
-        alert("Please fill out all fields");
-      } else {
-        number++;
-        obj["name"] = answers.value;
-        answers.type = "date";
-      }
-    }
-    if (question.textContent === anyQuestions[1].question) {
-      number++;
-      obj["dateofBirth"] = answers.value;
-      answers.style.display = "none";
-      iconSubmit.style.display = "none";
-    }
-    if (number > 1) {
-      looping();
-    }
-    category.textContent = anyQuestions[number].category;
-    question.textContent = anyQuestions[number].question;
-    console.log(obj);
-    console.log(question.textContent);
-  });
 }
 render();

@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ara-Ara</title>
     <link rel="stylesheet" href="../assets/css/style.css" />
+    <link
+      as="font"
+      rel="preload"
+      type="font/woff"
+      href="https://static.base.co.id/fonts/Termina/Termina-Regular.woff"
+    />
   </head>
   <body class="quiz-page">
     <div class="container">
@@ -13,7 +19,7 @@
           <div class="header-logo quiz">Ara-Ara</div>
         </a>
       </div>
-      <div class="quiz-hero">
+      <div class="quiz-hero opacity" id="quiz">
         <div class="quiz-content">
           <p id="category" class="category"></p>
           <h3 id="question"></h3>
@@ -29,7 +35,135 @@
           </form>
         </div>
       </div>
+      <div class="output-hero" id="output" style="display: none">
+        <div class="title">
+          <p class="status">SKIN ANALYSIS RESULT</p>
+          <h1 id="made">Made for Raf</h1>
+          <p class="sub">
+            Hasil analisis kulit kamu didasarkan pada jawaban kamu dan database
+            kami. Hasil analisis kulit ini, dibuat khusus untuk kamu.
+          </p>
+          <a href=""
+            >Konsultasi Sekarang
+            <img src="https://static.base.co.id/scroll-right-coral.svg" alt=""
+          /></a>
+        </div>
+        <div class="section about-us">
+          <h1>About Yourself</h1>
+          <div class="content">
+            <div class="list">
+              <img
+                src="https://static.base.co.id/quiz-result-name_.svg"
+                alt=""
+              />
+              <p id="name"></p>
+            </div>
+            <div class="list">
+              <img
+                src="https://static.base.co.id/quiz-result-age_.svg"
+                alt=""
+              />
+              <p id="age"></p>
+            </div>
+            <div class="list">
+              <img
+                src="https://static.base.co.id/quiz-result-gender_.svg"
+                alt=""
+              />
+              <p id="gender"></p>
+            </div>
+          </div>
+        </div>
+        <div class="section skin">
+          <h1>Your Skin</h1>
+          <div class="content">
+            <div class="list skin">
+              <img
+                src="https://static.base.co.id/quiz-result-skin-type_.svg"
+                alt=""
+              />
+              <p id="kondisi"></p>
+            </div>
+            <div class="list skin">
+              <img
+                src="https://static.base.co.id/quiz-result-skin-goal-acne_.svg"
+                alt=""
+              />
+              <p id="hope"></p>
+            </div>
+            <div class="list skin">
+              <img
+                src="https://static.base.co.id/quiz-result-acne-normal_.svg"
+                alt=""
+              />
+              <p id="acne"></p>
+            </div>
+            <div class="list skin">
+              <img
+                src="https://static.base.co.id/quiz-result-special-condition_.svg"
+                alt=""
+              />
+              <p id="kulit"></p>
+            </div>
+          </div>
+        </div>
+        <div class="section life">
+          <h1>Your Lifestyle</h1>
+          <div class="content" id="life-content">
+            <div class="list life">
+              <img
+                src="https://static.base.co.id/quiz-result-retinol_.svg"
+                alt=""
+              />
+              <p id="retinol"></p>
+            </div>
+            <div class="list life">
+              <img
+                src="https://static.base.co.id/quiz-result-AHA-BHA_.svg"
+                alt=""
+              />
+              <p id="pha"></p>
+            </div>
+            <div class="list life">
+              <img
+                src="https://static.base.co.id/quiz-result-prescription_.svg"
+                alt=""
+              />
+              <p id="dermatologi"></p>
+            </div>
+            <div class="list life">
+              <img
+                src="https://static.base.co.id/quiz-result-sunlight_.svg"
+                alt=""
+              />
+              <p id="sun"></p>
+            </div>
+            <div class="list life">
+              <img
+                src="https://static.base.co.id/quiz-result-sleep-9pm-11pm_.svg"
+                alt=""
+              />
+              <p id="sleep"></p>
+            </div>
+            <div class="list life">
+              <img
+                src="https://static.base.co.id/quiz-result-commute-car_.svg"
+                alt=""
+              />
+              <p id="vehicle"></p>
+            </div>
+            <div class="list life">
+              <img
+                src="https://static.base.co.id/quiz-result-diet_.svg"
+                alt=""
+              />
+              <p id="diet"></p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script type="module" src="../assets/js/index.js"></script>
+    <!-- <script type="module" src="../assets/js/output.js"></script> -->
   </body>
 </html>
