@@ -51,6 +51,18 @@ const anyQuestions = [
     category: "Your Skin",
   },
   {
+    status: false,
+    question: "Apakah kamu mengalami kondisi kulit berikut ini dalam 4 minggu?",
+    answer: [
+      "Kemerahan dan ruam",
+      "Gatal",
+      "Kering dan terkelupas",
+      "Kulit bersisik putih",
+      "Tidak, kulitku baik-baik saja", // false
+    ],
+    category: "Your Skin",
+  },
+  {
     status: true,
     question: "Tipe jerawat apa yang biasanya muncul pada kulitmu?",
     answer: [
@@ -71,18 +83,6 @@ const anyQuestions = [
       "Dahi",
       "Area T atau dahi dan hidung",
       "Di semua titik :(",
-    ],
-    category: "Your Skin",
-  },
-  {
-    status: false,
-    question: "Apakah kamu mengalami kondisi kulit berikut ini dalam 4 minggu?",
-    answer: [
-      "Kemerahan dan ruam",
-      "Gatal",
-      "Kering dan terkelupas",
-      "Kulit bersisik putih",
-      "Tidak, kulitku baik-baik saja", // false
     ],
     category: "Your Skin",
   },
@@ -144,7 +144,7 @@ function render() {
 
   //looping
   function looping() {
-    if (number === 4 || number === 7) {
+    if (number === 4 || number === 8) {
       document.getElementById("form").className = "form";
       let allCard = document.createElement("div");
       for (i = 0; i < anyQuestions[number].answer.length; i++) {
@@ -185,31 +185,67 @@ function render() {
   //handle click
 
   function handleClick(value) {
-    console.log(value);
-    if (anyQuestions[number].category === "About Yourself") {
-      if (value === "Wanita") {
-        number++;
-      } else {
-        number += 2;
-      }
-      obj["gender"] = value;
-      let input = document.getElementById("input");
-      input.remove();
-      looping();
-    } else if (anyQuestions[number].category === "Your Skin") {
-      obj["Your Skin"].push(value);
-      if (number === 4 || number === 7) {
-        let input = document.getElementById("all-card");
-        input.remove();
-      } else {
+    if (number < anyQuestions.length - 1) {
+      if (anyQuestions[number].category === "About Yourself") {
+        if (value === "Wanita") {
+          number++;
+        } else {
+          number += 2;
+        }
+        obj["gender"] = value;
         let input = document.getElementById("input");
         input.remove();
+        looping();
+      } else if (anyQuestions[number].category === "Your Skin") {
+        if (value === "Tidak ada sama sekali") {
+          number++;
+          let input = document.getElementById("input");
+          input.remove();
+          looping();
+        } else if (
+          value === "1 - 2 kali" ||
+          value === "3 - 4 kali" ||
+          value === "Selalu ada jerawat"
+        ) {
+          obj["Your Skin"].push(value);
+          number += 2;
+          let input = document.getElementById("input");
+          input.remove();
+          looping();
+        } else if (
+          value === "Kemerahan dan ruam" ||
+          value === "Gatal" ||
+          value === "Kering dan terkelupas" ||
+          value === "Kulit bersisik putih"
+        ) {
+          number += 3;
+          let input = document.getElementById("input");
+          obj["Your Skin"].push(value);
+          input.remove();
+          looping();
+        } else if (value === "Tidak, kulitku baik-baik saja") {
+          number = anyQuestions.length - 1;
+          let input = document.getElementById("input");
+          input.remove();
+          looping();
+        } else {
+          obj["Your Skin"].push(value);
+          if (number === 4 || number === 8) {
+            let input = document.getElementById("all-card");
+            input.remove();
+          } else {
+            let input = document.getElementById("input");
+            input.remove();
+          }
+          number++;
+          looping();
+        }
       }
-      number++;
-      looping();
+      category.textContent = anyQuestions[number].category;
+      question.textContent = anyQuestions[number].question;
+    } else if (number === anyQuestions.length - 1) {
+      window.location.href = "../../index.html";
     }
-    category.textContent = anyQuestions[number].category;
-    question.textContent = anyQuestions[number].question;
     console.log(obj);
   }
 
