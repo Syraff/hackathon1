@@ -205,15 +205,15 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 /* animation */
 
 .item {
-  width: 80px;
+  width: 400px;
   position: absolute;
   top: -10%;
-  left: 2%;
+  left: -5%;
   transform: rotate(45deg);
 }
 .black {
-  top: -9%;
-  left: 1.5%;
+  top: 30%;
+  left: 80%;
 }
 
 .animation-logo {
